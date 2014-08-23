@@ -1,0 +1,9 @@
+package snippet;
+
+public class Snippet {
+	
+	public static void actionStart(Context context) {
+		context.startActivity(new Intent(context, UsingWebViewActivity.class));
+	}
+}
+

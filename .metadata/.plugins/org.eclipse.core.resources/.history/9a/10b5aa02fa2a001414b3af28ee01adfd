@@ -1,0 +1,10 @@
+package com.ruijie.rush.base;
+
+import android.app.Application;
+import android.content.Context;
+
+public class RushApplication extends Application {
+
+	private static Context context = null;
+	
+}

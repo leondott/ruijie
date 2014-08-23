@@ -1,0 +1,7 @@
+package com.ruijie.rush.base;
+
+import android.app.Application;
+
+public class RushApplication extends Application {
+
+}

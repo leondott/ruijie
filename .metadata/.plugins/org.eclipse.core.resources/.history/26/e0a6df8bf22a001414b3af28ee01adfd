@@ -1,0 +1,8 @@
+package com.ruijie.rush.util;
+
+
+public class Constants {
+	
+	public static final int PRIORITY_HIGH = 2147483647;
+	
+}

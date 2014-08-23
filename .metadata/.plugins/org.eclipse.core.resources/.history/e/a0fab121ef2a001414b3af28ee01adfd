@@ -1,0 +1,7 @@
+<html>
+ 
+<input type="text" id="msg" />
+<input type="button" id="btn" value="display text in Toast" onclick = "ShowTextWithToast()" />
+<div id="show"/>
+ 
+</html>

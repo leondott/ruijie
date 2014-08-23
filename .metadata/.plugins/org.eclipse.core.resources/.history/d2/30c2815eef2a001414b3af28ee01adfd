@@ -1,0 +1,33 @@
+package com.ruijie.rush;
+
+import android.webkit.WebView;
+
+import com.ruijie.rush.base.BaseActivity;
+
+public class UsingWebViewActivity extends BaseActivity {
+
+	private WebView webView = null;
+	
+	@Override
+	protected void setContentView() {
+		setContentView(R.layout.act_using_webview);
+	}
+
+	@Override
+	protected void initView() {
+		webView = (WebView) findViewById(R.id.wv_content);
+	}
+
+	@Override
+	protected void initData() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setListener() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

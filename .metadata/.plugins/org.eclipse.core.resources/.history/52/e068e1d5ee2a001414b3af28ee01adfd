@@ -1,0 +1,30 @@
+package com.ruijie.rush;
+
+import com.ruijie.rush.base.BaseActivity;
+
+public class UsingWebViewActivity extends BaseActivity {
+
+	@Override
+	protected void setContentView() {
+		
+	}
+
+	@Override
+	protected void initView() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void initData() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setListener() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
