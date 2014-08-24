@@ -7,8 +7,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +25,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.UsingWebViewActivity"></activity>
-        <activity android:name=".ui.UsingDatabaseActivity"></activity>
+        <activity
+            android:name=".ui.UsingWebViewActivity"
+            android:label="@string/using_webview" >
+            <intent-filter>
+                <action android:name="com.ruijie.rush.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.UsingDatabaseActivity"
+            android:label="@string/using_database" >
+            <intent-filter>
+                <action android:name="com.ruijie.rush.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+         <activity
+            android:name=".ui.UsingVolleyActivity"
+            android:label="@string/using_volley" >
+            <intent-filter>
+                <action android:name="com.ruijie.rush.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

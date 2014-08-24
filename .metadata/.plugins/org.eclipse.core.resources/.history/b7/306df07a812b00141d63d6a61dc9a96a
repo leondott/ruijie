@@ -1,0 +1,7 @@
+package com.ruijie.rush.util;
+
+public interface IRequest {
+
+	public String stringRequest();
+	
+}

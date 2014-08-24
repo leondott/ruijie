@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ActivityInfoUtil.java&apos; to &apos;Rush/src/com.ruijie.rush.util&apos;&#x0D;&#x0A;- Original project: &apos;Car_Entertainment&apos;&#x0D;&#x0A;- Destination element: &apos;Rush/src/com.ruijie.rush.util&apos;&#x0D;&#x0A;- Original element: &apos;com.ruijie.entertainment.util.ActivityInfoUtil.java&apos;" description="Copy compilation unit" destination="=Rush/src&lt;com.ruijie.rush.util" element1="/src&lt;com.ruijie.entertainment.util{ActivityInfoUtil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1408874866246" units="1" version="1.0"/>
+</session>

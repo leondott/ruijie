@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_request"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/act_using_volley_btn_request" />
+
+    <TextView
+        android:id="@+id/tv_volley"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:hint="@string/ac显示内容..."
+        android:layout_height="0dp" >
+    </TextView>
+
+</LinearLayout>

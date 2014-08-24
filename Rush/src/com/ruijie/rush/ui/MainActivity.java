@@ -1,5 +1,8 @@
 package com.ruijie.rush.ui;
 
+import java.util.List;
+
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,12 +12,14 @@ import android.widget.ListView;
 
 import com.ruijie.rush.R;
 import com.ruijie.rush.base.BaseActivity;
+import com.ruijie.rush.util.ActivityInfoParser;
 
 public class MainActivity extends BaseActivity {
 
 	private ArrayAdapter<String> adapter = null;
 	private ListView listView = null;
 	private String[] listViewData = null;
+	private List<ActivityInfo> activityInfos = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,13 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void initData() {
-		listViewData = new String[] {"UsingWebView", "UsingDatabase"};
+		activityInfos = ActivityInfoParser.getActivityInfos(this);
+//		listViewData = new String[] {"UsingWebView", "UsingDatabase"};
+		listViewData = new String[activityInfos.size()];
+		for (int i = 0; i < activityInfos.size(); i++) {
+			ActivityInfo activityInfo = activityInfos.get(i);
+			listViewData[i] = activityInfo.loadLabel(getPackageManager()).toString();
+		}
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listViewData);
 	}
 
@@ -44,11 +55,14 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				if (listViewData[position] == "UsingWebView") {
+				if (listViewData[position] == getResources().getString(R.string.using_webview)) {
 					UsingWebViewActivity.actionStart(MainActivity.this);
 				}
-				if (listViewData[position] == "UsingDatabase") {
+				if (listViewData[position] == getResources().getString(R.string.using_database)) {
 					UsingDatabaseActivity.actionStart(MainActivity.this);
+				}
+				if (listViewData[position] == getResources().getString(R.string.using_volley)) {
+					UsingVolleyActivity.actionStart(MainActivity.this);
 				}
 			}
 		});

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Rush</string>
+    <string name="using_webview">WebView</string>
+    <string name="using_database">Database</string>
+    <string name="using_volley">Volley</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="act_using_webview_btn_reg">开启短信监听</string>
+    <string name="act_using_webview_btn_unreg">关闭短信监听</string>
+    
+    <string name="act_using_database_btn_create">创建数据库</string>
+    <string name="act_using_database_btn_add">新增数据</string>
+    <string name="act_using_database_btn_update">更新数据</string>
+    <string name="act_using_database_btn_delete">删除数据</string>
+    <string name="act_using_database_btn_query">查询数据</string>
+
+    <string name="act_using_volley_btn_request">请求网络数据</string>
+    <string name="act_using_volley_tv_result">请求网络数据</string>
+
+</resources>

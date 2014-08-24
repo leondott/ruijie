@@ -1,0 +1,60 @@
+package com.ruijie.rush.util.impl;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.ruijie.rush.util.IRequestControl;
+import com.ruijie.rush.util.RushApplication;
+
+public class RequestControl implements IRequestControl {
+
+	private String stringResult = "";
+	private String url = "";
+	
+	public RequestControl(String url) {
+		this.url = url;
+	}
+	
+	@Override
+	public String stringRequest() {
+		RequestQueue queue = Volley.newRequestQueue(RushApplication.getContext());
+		StringRequest stringRequest = new StringRequest(url, new Listener<String>() {
+			@Override
+			public void onResponse(String response) {
+				stringResult = response;
+			}
+		}, new ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		return stringResult;
+	}
+
+	@Override
+	public String stringRequest(String url, int method) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JSONObject JsonObjectRequest(String url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JSONArray JsonArrayRequest(String url) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

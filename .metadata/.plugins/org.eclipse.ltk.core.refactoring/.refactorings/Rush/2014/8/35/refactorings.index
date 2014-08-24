@@ -8,3 +8,12 @@
 1408862193543	Rename method 'closeDB'
 1408862203025	Rename type 'DBHelper'
 1408862207894	Rename type 'DBManager'
+1408874887460	Rename type 'ActivityInfoUtil'
+1408874934505	Rename method 'getHomeAppActivities'
+1408875237560	Rename local variable 'len'
+1408875454612	Rename local variable 'infos'
+1408875464634	Rename local variable 'list'
+1408875536009	Rename local variable 'info'
+1408879247237	Copy file
+1408879730254	Rename type 'IRequest'
+1408884944097	Rename type 'UsingVollyActivity'

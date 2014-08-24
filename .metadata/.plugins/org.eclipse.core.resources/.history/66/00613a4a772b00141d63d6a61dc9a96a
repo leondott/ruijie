@@ -1,0 +1,34 @@
+package com.ruijie.rush.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+
+public class ActivityInfoParser {
+	
+	public static List<ActivityInfo> getActivityInfos(Context context) {
+		Intent mainIntent = new Intent("com.ruijie.action.MAIN", null);
+		mainIntent.addCategory("ruijie.intent.category.home");
+		PackageManager pm = context.getPackageManager();
+		List<ResolveInfo> list = pm.queryIntentActivities(mainIntent, 0);
+		List<ActivityInfo> infos = new ArrayList<ActivityInfo>();
+
+		if (null == list)
+			list = new ArrayList<ResolveInfo>();
+
+		int len = list.size();
+		for (int i = 0; i < len; i++) {
+			ResolveInfo info = list.get(i);
+			if (info.activityInfo.packageName
+					.contains("com.ruijie.entertainment"))
+				infos.add(info.activityInfo);
+		}
+		return infos;
+	}
+
+}

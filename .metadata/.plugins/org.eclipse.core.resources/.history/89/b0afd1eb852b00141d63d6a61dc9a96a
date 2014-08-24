@@ -1,0 +1,95 @@
+package com.ruijie.rush.util.impl;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.ruijie.rush.util.IRequestControl;
+import com.ruijie.rush.util.RushApplication;
+
+public class RequestControl implements IRequestControl {
+
+	private String stringResult = "";
+	private Context context = null;
+
+	public RequestControl(String url) {
+		this.url = url;
+	}
+
+	public String getStringResult() {
+		return stringResult;
+	}
+
+	@Override
+	public String stringRequest() {
+		RequestQueue queue = Volley.newRequestQueue(RushApplication
+				.getContext());
+		StringRequest stringRequest = new StringRequest(url,
+				new Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						stringResult = response;
+					}
+				}, new ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("RequestControl", error.getMessage(), error);
+					}
+				});
+		queue.add(stringRequest);
+		return getStringResult();
+	}
+
+	@Override
+	public String stringRequest(int method) {
+		RequestQueue queue = Volley.newRequestQueue(RushApplication
+				.getContext());
+		StringRequest stringRequest = new StringRequest(method, url,
+				new Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+						stringResult = response;
+					}
+				}, new ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("RequestControl", error.getMessage(), error);
+					}
+				}) {//重写getParams()方法
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("params1", "value1");
+				map.put("params2", "value2");
+				return map;
+			}
+		};
+		queue.add(stringRequest);
+		return getStringResult();
+	}
+
+	@Override
+	public JSONObject jsonObjectRequest() {
+		RequestQueue queue = Volley.newRequestQueue(RushApplication.getContext());
+		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, jsonRequest, listener, errorListener)
+	}
+
+	@Override
+	public JSONArray jsonArrayRequest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

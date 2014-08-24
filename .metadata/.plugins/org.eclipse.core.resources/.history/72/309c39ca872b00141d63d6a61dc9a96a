@@ -1,0 +1,35 @@
+package com.ruijie.rush.ui;
+
+import android.webkit.WebView;
+
+import com.ruijie.rush.R;
+import com.ruijie.rush.base.BaseActivity;
+import com.ruijie.rush.util.IRequestControl;
+import com.ruijie.rush.util.impl.RequestControl;
+
+public class UsingVollyActivity extends BaseActivity {
+
+	private IRequestControl request = null;
+	private WebView webView = null;
+	
+	@Override
+	protected void setContentView() {
+		setContentView(R.layout.act_using_volley);
+	}
+
+	@Override
+	protected void initView() {
+		webView = (WebView) findViewById(R.id.wv_volley);
+	}
+
+	@Override
+	protected void initData() {
+		request = new RequestControl(this);
+	}
+
+	@Override
+	protected void setListener() {
+		findViewById(R.id.btn_request).setOnClickListener(this);
+	}
+
+}

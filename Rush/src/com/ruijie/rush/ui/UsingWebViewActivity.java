@@ -5,23 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import com.ruijie.rush.R;
 import com.ruijie.rush.base.BaseActivity;
 import com.ruijie.rush.receiver.SmsMessageReceiver;
 import com.ruijie.rush.util.Constants;
 
-public class UsingWebViewActivity extends BaseActivity implements OnClickListener {
+public class UsingWebViewActivity extends BaseActivity {
 
 	public static final String URL_LOCAL_HTML = "file:///android_asset/html/index.html";
 	
 	private WebView webView = null;
 	private SmsMessageReceiver receiver = null;
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		registerSmsMessageReceiver();
+	}
 	
 	@Override
 	protected void onPause() {
@@ -64,8 +67,8 @@ public class UsingWebViewActivity extends BaseActivity implements OnClickListene
 
 	@Override
 	protected void setListener() {
-		findViewById(R.id.btn_reg).setOnClickListener(this);
-		findViewById(R.id.btn_unreg).setOnClickListener(this);
+		// TODO Auto-generated method stub
+		
 	}
 	
 	private void registerSmsMessageReceiver(){
@@ -77,20 +80,6 @@ public class UsingWebViewActivity extends BaseActivity implements OnClickListene
 	private void unRegisterSmsMessageReceiver(){
 		if (receiver != null) {
 			unregisterReceiver(receiver);
-		}
-	}
-
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.btn_reg:
-			registerSmsMessageReceiver();
-			Toast.makeText(this, "已开启短信监听", Toast.LENGTH_SHORT).show();
-			break;
-		case R.id.btn_unreg:
-			unRegisterSmsMessageReceiver();
-			Toast.makeText(this, "已关闭短信监听", Toast.LENGTH_SHORT).show();
-			break;
 		}
 	}
 

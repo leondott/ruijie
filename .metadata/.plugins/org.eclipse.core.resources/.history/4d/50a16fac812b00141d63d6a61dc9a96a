@@ -1,0 +1,15 @@
+package com.ruijie.rush.util;
+
+import org.json.JSONObject;
+
+public interface IRequest {
+
+	public String stringRequest(String url);
+
+	public String stringRequest(String url, int method);
+	
+	public JSONObject JsonObjectRequest(String url);
+	
+	public JsonArray JsonArrayRequest(String url);
+	
+}

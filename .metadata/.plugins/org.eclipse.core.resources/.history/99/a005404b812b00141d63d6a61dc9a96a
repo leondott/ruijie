@@ -1,0 +1,5 @@
+package com.ruijie.rush.util;
+
+public interface IRequest {
+
+}

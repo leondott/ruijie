@@ -2,6 +2,9 @@
 <resources>
 
     <string name="app_name">Rush</string>
+    <string name="using_webview">WebView</string>
+    <string name="using_database">Database</string>
+    <string name="using_volley">Volley</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     
@@ -13,5 +16,9 @@
     <string name="act_using_database_btn_update">更新数据</string>
     <string name="act_using_database_btn_delete">删除数据</string>
     <string name="act_using_database_btn_query">查询数据</string>
+
+    <string name="act_using_volley_btn_string_request">StringRequest</string>
+    <string name="act_using_volley_btn_json_request">JsonObjectRequest</string>
+    <string name="act_using_volley_tv_result">请求结果显示</string>
 
 </resources>

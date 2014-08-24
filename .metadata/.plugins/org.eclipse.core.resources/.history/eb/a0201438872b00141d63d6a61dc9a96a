@@ -1,0 +1,33 @@
+package com.ruijie.rush.ui;
+
+import com.ruijie.rush.R;
+import com.ruijie.rush.base.BaseActivity;
+import com.ruijie.rush.util.IRequestControl;
+
+public class UsingVollyActivity extends BaseActivity {
+
+	private IRequestControl request;
+	
+	@Override
+	protected void setContentView() {
+		setContentView(R.layout.act_using_volley);
+	}
+
+	@Override
+	protected void initView() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	protected void initData() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void setListener() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
