@@ -1,0 +1,10 @@
+1408845968267	Rename package 'com.ruijie.rush.bean'
+1408846869959	Rename field 'DATABASE_VERSION'
+1408846875218	Rename field 'DATABASE_NAME'
+1408847498909	Copy compilation unit
+1408848371537	Rename local variable 'pendingInfo'
+1408851386004	Rename local variable 'recordID'
+1408852290410	Rename method 'add'
+1408862193543	Rename method 'closeDB'
+1408862203025	Rename type 'DBHelper'
+1408862207894	Rename type 'DBManager'

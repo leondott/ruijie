@@ -12,14 +12,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="开启短信监听" />
+            android:text="@string/act_using_webview_btn_reg" />
 
         <Button
             android:id="@+id/btn_unreg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="关闭短信监听" />
+            android:text="@string/act_using_webview_btn_unreg" />
     </LinearLayout>
 
     <WebView

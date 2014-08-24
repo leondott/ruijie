@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void initData() {
-		listViewData = new String[] {"UsingWebViewActivity"};
+		listViewData = new String[] {"UsingWebView", "UsingDatabase"};
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listViewData);
 	}
 
@@ -44,8 +44,11 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				if (listViewData[position] == "UsingWebViewActivity") {
+				if (listViewData[position] == "UsingWebView") {
 					UsingWebViewActivity.actionStart(MainActivity.this);
+				}
+				if (listViewData[position] == "UsingDatabase") {
+					UsingDatabaseActivity.actionStart(MainActivity.this);
 				}
 			}
 		});

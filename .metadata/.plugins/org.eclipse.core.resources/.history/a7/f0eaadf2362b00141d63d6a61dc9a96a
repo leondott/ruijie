@@ -1,0 +1,45 @@
+package com.ruijie.rush.model;
+
+public class Category {
+
+	private String name = "";
+	private int code = 0;
+	
+	public Category(String name, int code) {
+		this.name = name;
+		this.code =code;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public float getPrice() {
+		return price;
+	}
+	
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	
+	public int getPages() {
+		return pages;
+	}
+	
+	public void setPages(int pages) {
+		this.pages = pages;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}

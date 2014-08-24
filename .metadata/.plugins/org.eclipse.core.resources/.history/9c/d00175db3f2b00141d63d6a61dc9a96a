@@ -1,0 +1,73 @@
+package com.ruijie.rush.db;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.ruijie.rush.model.Book;
+
+public class DBManager {
+
+	public static final String TABLE_NAME = "Book";
+	public static final String COLUMN_BOOK_NAME = "name";
+	public static final String COLUMN_BOOK_AUTHOR = "author";
+	public static final String COLUMN_BOOK_PRICE = "price";
+	public static final String COLUMN_BOOK_PAGES = "pages";
+	public static final String COLUMN_BOOK_CATEGORY_ID = "category_id";
+
+	private DBHelper helper = null;
+	private SQLiteDatabase db = null;
+	
+	public DBManager(Context context) {
+		this.helper = new DBHelper(context, "test.db", null, 1);
+		this.db = helper.getWritableDatabase();
+	}
+	
+	public void add(Book book){
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_BOOK_NAME, book.getName());
+		values.put(COLUMN_BOOK_AUTHOR, book.getAuthor());
+		values.put(COLUMN_BOOK_PRICE, book.getPrice());
+		values.put(COLUMN_BOOK_PAGES, book.getPages());
+		values.put(COLUMN_BOOK_CATEGORY_ID, book.getCategoryId());
+	}
+	
+	public int delete(int recordID) {
+		return db.delete(TABLE_NAME, "_id=?", new String[] { String.valueOf(recordID) });
+	}
+	
+	public int update(ContentValues values, String whereClause, String[] whereArgs) {
+		return db.update(TABLE_NAME, values, whereClause, whereArgs);
+	}
+	
+	public List<Book> query(){
+		List<Book> results = new ArrayList<Book>();
+		Cursor c= getCursor();
+		while (c.moveToNext()) {
+			Book book = new Book();
+			book.setName(c.getString(c.getColumnIndex(COLUMN_BOOK_NAME)));
+			book.setAuthor(c.getString(c.getColumnIndex(COLUMN_BOOK_AUTHOR)));
+			book.setPrice(c.getFloat(c.getColumnIndex(COLUMN_BOOK_PRICE)));
+			book.setPages(c.getInt(c.getColumnIndex(COLUMN_BOOK_PAGES)));
+			book.setCategoryId(c.getInt(c.getColumnIndex(COLUMN_BOOK_CATEGORY_ID)));
+			results.add(book);
+		}
+		c.close();
+		return results;
+	}
+	
+	public Cursor getCursor(){
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+	}
+	
+	public void closeDB(){
+		if (db.isOpen()) {
+			db.close();
+		}
+	}
+	
+}

@@ -1,0 +1,81 @@
+package com.ruijie.rush.db;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+public class DBManager {
+
+	private DBHelper helper;
+	private SQLiteDatabase db;
+	
+	private static final String TABLE_NAME = "Book";
+	private static final String COLUMN_AUTHOR = "author";
+	private static final String COLUMN_PRICE = "price";
+	private static final String COLUMN_PAGES = "pages";
+	private static final String COLUMN_NAME = "name";
+	private static final String COLUMN_CATEGORY_ID = "category_id";
+	
+	public DBManager(Context context) {
+		this.helper = new DBHelper(context, "test.db", null, 1);
+		this.db = helper.getWritableDatabase();
+	}
+	
+	public void add(PendingInfo pendingInfo){
+		ContentValues values = new ContentValues();
+		values.put(COLUMN_START_TIME, pendingInfo.getStartTime());
+		values.put(COLUMN_END_TIME, pendingInfo.getEndTime());
+		values.put(COLUMN_TYPE, pendingInfo.getType());
+		values.put(COLUMN_CAUSE, pendingInfo.getCause());
+		values.put(COLUMN_NAME, pendingInfo.getName());
+		values.put(COLUMN_DEPART, pendingInfo.getDepart());
+		values.put(COLUMN_SUBMIT_TIME, pendingInfo.getSubmitTime());
+		values.put(COLUMN_EMPLOYEE_ID, pendingInfo.getEmployeeID());
+		
+		db.insert(TABLE_NAME, null, values);
+		
+//		db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?)", 
+//				new Object[]{pendingInfo.getStartTime(), pendingInfo.getEndTime(),
+//				pendingInfo.getType(), pendingInfo.getCause(), pendingInfo.getName(),
+//				pendingInfo.getDepart(), pendingInfo.getSubmitTime(), pendingInfo.getEmployeeID()});
+	}
+	
+	public void delete(int recordID) {
+		db.delete(TABLE_NAME, "_id=?", new String[] { String.valueOf(recordID) });
+	}
+	
+	public List<PendingInfo> query(){
+		List<PendingInfo> results = new ArrayList<PendingInfo>();
+		Cursor c= getCursor();
+		while (c.moveToNext()) {
+			PendingInfo pendingInfo = new PendingInfo();
+			pendingInfo.setStartTime(c.getString(c.getColumnIndex(COLUMN_START_TIME)));
+			pendingInfo.setEndTime(c.getString(c.getColumnIndex(COLUMN_END_TIME)));
+			pendingInfo.setCause(c.getString(c.getColumnIndex(COLUMN_CAUSE)));
+			pendingInfo.setDepart(c.getString(c.getColumnIndex(COLUMN_DEPART)));
+			pendingInfo.setEmployeeID(c.getString(c.getColumnIndex(COLUMN_EMPLOYEE_ID)));
+			pendingInfo.setName(c.getString(c.getColumnIndex(COLUMN_NAME)));
+			pendingInfo.setSubmitTime(c.getString(c.getColumnIndex(COLUMN_SUBMIT_TIME)));
+			pendingInfo.setType(c.getString(c.getColumnIndex(COLUMN_TYPE)));
+			
+			results.add(pendingInfo);
+		}
+		
+		c.close();
+		
+		return results;
+	}
+	
+	public Cursor getCursor(){
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+	}
+	
+	public void closeDB(){
+		db.close();
+	}
+	
+}

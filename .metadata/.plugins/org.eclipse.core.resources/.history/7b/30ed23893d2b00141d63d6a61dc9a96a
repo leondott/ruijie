@@ -1,0 +1,66 @@
+package com.ruijie.rush.ui;
+
+import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
+import android.view.View.OnClickListener;
+
+import com.ruijie.rush.R;
+import com.ruijie.rush.base.BaseActivity;
+import com.ruijie.rush.db.DBHelper;
+import com.ruijie.rush.db.DBManager;
+
+public class UsingDatabaseActivity extends BaseActivity implements OnClickListener {
+
+	private DBHelper helper = null;
+	private SQLiteDatabase db = null;
+	private DBManager manager = null;
+	
+	@Override
+	protected void setContentView() {
+		setContentView(R.layout.act_using_database);
+	}
+
+	@Override
+	protected void initView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initData() {
+		helper = new DBHelper(this, "test.db", null, 1);
+//		db = helper.getWritableDatabase();
+		manager = new DBManager(this);
+	}
+
+	@Override
+	protected void setListener() {
+		findViewById(R.id.btn_create).setOnClickListener(this);
+		findViewById(R.id.btn_add).setOnClickListener(this);
+		findViewById(R.id.btn_update).setOnClickListener(this);
+		findViewById(R.id.btn_delete).setOnClickListener(this);
+		findViewById(R.id.btn_query).setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_create:
+			db = helper.getWritableDatabase();
+			break;
+		case R.id.btn_add:
+			
+			break;
+		case R.id.btn_update:
+
+			break;
+		case R.id.btn_delete:
+
+			break;
+		case R.id.btn_query:
+
+			break;
+		}
+	}
+	
+}

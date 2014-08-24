@@ -1,0 +1,30 @@
+package com.ruijie.rush.ui;
+
+import com.ruijie.rush.R;
+import com.ruijie.rush.base.BaseActivity;
+
+public class UsingDatabaseActivity extends BaseActivity {
+
+	@Override
+	protected void setContentView() {
+		setContentView(R.layout.act_using_database);
+	}
+
+	@Override
+	protected void initView() {
+		
+	}
+
+	@Override
+	protected void initData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void setListener() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

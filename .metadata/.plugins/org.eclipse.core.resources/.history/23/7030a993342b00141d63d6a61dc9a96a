@@ -1,0 +1,5 @@
+package com.ruijie.rush.model;
+
+public class Book {
+
+}
