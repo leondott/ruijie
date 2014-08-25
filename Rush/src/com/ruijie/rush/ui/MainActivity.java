@@ -2,6 +2,7 @@ package com.ruijie.rush.ui;
 
 import java.util.List;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -63,6 +64,9 @@ public class MainActivity extends BaseActivity {
 				}
 				if (listViewData[position] == getResources().getString(R.string.using_volley)) {
 					UsingVolleyActivity.actionStart(MainActivity.this);
+				}
+				if (listViewData[position] == getResources().getString(R.string.using_niftydialog)) {
+					startActivity(new Intent(MainActivity.this, com.gitonway.lee.niftymodal.MainActivity.class));
 				}
 			}
 		});

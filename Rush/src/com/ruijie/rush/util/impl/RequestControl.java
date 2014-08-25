@@ -18,7 +18,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ruijie.rush.util.IRequestControl;
-import com.ruijie.rush.util.RushApplication;
 
 public class RequestControl implements IRequestControl {
 

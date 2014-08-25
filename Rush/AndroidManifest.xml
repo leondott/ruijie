@@ -52,6 +52,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.gitonway.lee.niftymodal.MainActivity"
+            android:label="@string/using_niftydialog" >
+            <intent-filter>
+                <action android:name="com.ruijie.rush.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
